@@ -1,0 +1,7 @@
+Phần 1 là xử lý thao tác và phân quyền người dùng
+trên WEB:
+https://youtu.be/KK8mQ7g5CLI
+
+Phần 2 là xử lý thao tác và phân quyền người dùng
+bằng JWTS:
+https://youtu.be/6tFSH8hq1E0
