@@ -2,6 +2,8 @@ package com.myclass.controller.admin;
 
 import javax.validation.Valid;
 
+import com.myclass.service.impl.CategoryServiceImpl;
+import com.myclass.util.ServiceFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,10 @@ import com.myclass.service.CategoryService;
 public class AdminCategoryController {
 	@Autowired
 	private CategoryService categoryService;
+
+	public AdminCategoryController(){
+//		categoryService = ServiceFactory.getServiceByServiceType(CategoryService.class);
+	}
 
 	@GetMapping(UrlConstants.GET)
 	public String index(ModelMap modelMap) {

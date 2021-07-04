@@ -19,7 +19,12 @@ public class UserServiceImpl extends GenericServiceImpl<User, Integer> implement
 	@Autowired
 	UserRepository userRepository;
 	@Autowired
-	EnrollmentRepository enrollmentRepository; 
+	EnrollmentRepository enrollmentRepository;
+
+	public UserServiceImpl() {
+
+	}
+
 	public List<UserDto> findAllDto() {
 		List<User> users = userRepository.findAll();
 		List<UserDto> dtos = new ArrayList<UserDto>();

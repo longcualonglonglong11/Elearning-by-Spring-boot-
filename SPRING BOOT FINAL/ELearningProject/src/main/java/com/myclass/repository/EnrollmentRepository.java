@@ -13,6 +13,7 @@ import com.myclass.dto.UserDto;
 import com.myclass.entity.Enrollment;
 @Repository
 public interface EnrollmentRepository extends JpaRepository<Enrollment, Integer>{
+
 	@Query("SELECT e.courseId FROM Enrollment e WHERE e.userId = ?1 AND e.isInCart = TRUE")
 	List<Integer> findCourseIdByUserIdInCart(int userId);
 	@Query("SELECT e.courseId FROM Enrollment e WHERE e.userId = ?1 AND e.isBuy = TRUE")
