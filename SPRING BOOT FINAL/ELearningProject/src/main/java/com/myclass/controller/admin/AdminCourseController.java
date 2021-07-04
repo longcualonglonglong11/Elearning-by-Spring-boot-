@@ -1,6 +1,7 @@
 package com.myclass.controller.admin;
 
 import java.util.Optional;
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 
 import com.myclass.util.ServiceFactory;
@@ -46,12 +47,13 @@ public class AdminCourseController {
 	@Autowired
 	CloudinaryService cloudinaryService;
 
-	public AdminCourseController(){
-			categoryService = ServiceFactory.getServiceByServiceType(CategoryService.class);
-			courseService = ServiceFactory.getServiceByServiceType(CourseService.class);
-		 	videoService = ServiceFactory.getServiceByServiceType(VideoService.class);
-		 	targetService = ServiceFactory.getServiceByServiceType(TargetService.class);
-		 	cloudinaryService = ServiceFactory.getServiceByServiceType(CloudinaryService.class);
+	@PostConstruct
+	public void init(){
+			categoryService = categoryService != null ? categoryService : ServiceFactory.getServiceByServiceType(CategoryService.class);
+			courseService = courseService != null ? courseService : ServiceFactory.getServiceByServiceType(CourseService.class);
+		 	videoService = videoService != null ? videoService :ServiceFactory.getServiceByServiceType(VideoService.class);
+		 	targetService = targetService != null ? targetService :ServiceFactory.getServiceByServiceType(TargetService.class);
+		 	cloudinaryService = cloudinaryService != null ? cloudinaryService : ServiceFactory.getServiceByServiceType(CloudinaryService.class);
 	}
 
 	@RequestMapping(value = UrlConstants.GET, method = RequestMethod.GET)

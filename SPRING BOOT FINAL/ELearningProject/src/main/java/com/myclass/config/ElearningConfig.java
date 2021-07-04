@@ -7,9 +7,7 @@ import com.myclass.service.impl.CourseServiceImpl;
 import com.myclass.service.impl.EnrollmentServiceImpl;
 import com.myclass.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
 public class ElearningConfig {
 
     @Bean
@@ -19,7 +17,7 @@ public class ElearningConfig {
 
 
     @Bean
-    public CourseService courseService() {
+    public CourseService courseServicePrimary() {
         return new CourseServiceImpl();
     }
 
@@ -27,5 +25,4 @@ public class ElearningConfig {
     public EnrollmentService enrollmentService() {
         return new EnrollmentServiceImpl();
     }
-    // coding ..
 }

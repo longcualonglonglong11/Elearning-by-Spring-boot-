@@ -15,6 +15,10 @@ public class ServiceFactory {
     }
 
     public static <T> T getServiceByServiceType(Class<T> serviceType) {
-        return instance.getBean(serviceType);
+        try {
+            return instance.getBean(serviceType);
+        }
+        catch (Exception ignored){}
+        return null;
     }
 }
