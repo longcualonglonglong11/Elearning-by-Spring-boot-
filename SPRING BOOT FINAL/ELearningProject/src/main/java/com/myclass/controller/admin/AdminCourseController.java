@@ -2,6 +2,8 @@ package com.myclass.controller.admin;
 
 import java.util.Optional;
 import javax.validation.Valid;
+
+import com.myclass.util.ServiceFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +45,14 @@ public class AdminCourseController {
 	UserService userService;
 	@Autowired
 	CloudinaryService cloudinaryService;
+
+	public AdminCourseController(){
+			categoryService = ServiceFactory.getServiceByServiceType(CategoryService.class);
+			courseService = ServiceFactory.getServiceByServiceType(CourseService.class);
+		 	videoService = ServiceFactory.getServiceByServiceType(VideoService.class);
+		 	targetService = ServiceFactory.getServiceByServiceType(TargetService.class);
+		 	cloudinaryService = ServiceFactory.getServiceByServiceType(CloudinaryService.class);
+	}
 
 	@RequestMapping(value = UrlConstants.GET, method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
